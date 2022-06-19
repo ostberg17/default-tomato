@@ -1,0 +1,59 @@
+.container{
+  max-width: 1200px;
+  margin: auto;
+}
+.header{
+  background: black;
+  height: 60px;
+  &__content{
+    display: flex;
+    justify-content: space-between;
+    &-left{
+      display: inline-flex;
+    }
+    &-right{
+      display: inline-flex;
+    }
+    &-link{
+      display: inline-flex;
+      color: azure;
+      align-items: center;
+    }
+  }
+}
+.main{
+  &__forms{
+    background: red;
+    height: 60px;
+    &-content{
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      input {
+        display: block;
+        border: 2px solid red;
+        border-radius: 20px;
+        height: 60%;
+
+      }
+      input[type=search]{
+        width: 70%;
+      }
+      input[type=month]{
+        width: 25%;
+      }
+    }
+  }
+
+  &__cards{
+    display: inline-flex;
+
+    &-card{
+      width: 220px;
+      height: 260px;
+      background-color: blue;
+      margin: 10px;
+    }
+  }
+}
