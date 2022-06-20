@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movies-page.component.scss']
 })
 export class MoviesPageComponent implements OnInit {
-  users = ['', '', '', '', '', '' ,''];
+  users = ['', '', '', '', '', '', '', '', '', ''];
 
   constructor() { }
 
