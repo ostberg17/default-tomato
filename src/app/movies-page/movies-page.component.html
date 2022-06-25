@@ -2,17 +2,17 @@
 <header class="header">
   <div class="header__content container">
     <div class="header__content-left">
-      <div class="header__logo">
+      <div [routerLink]="['/']" class="header__logo">
         <img src="assets/logo.png">
       </div>
       <a>
-        <div class="header__content-link">
+        <div  [routerLink]="['/movies']" class="header__content-link">
           <img src="assets/icon-movies.png">
           <p>Movies</p>
         </div>
       </a>
       <a>
-        <div class="header__content-link">
+        <div [routerLink]="['/series']" class="header__content-link" >
           <img src="assets/icon-series.png">
           <p>Series</p>
         </div>
@@ -44,22 +44,26 @@
 <main class="main">
   <div class="main__forms">
     <div class="main__forms-content container">
-      <input type="search" name="find" placeholder="Name" id="#f1">
+      <input type="search" name="find" placeholder="Name" id="#f1" [(ngModel)]="search">
       <input type="month" name="find" placeholder="1920-1998" id="#f2">
     </div>
   </div>
   <h2 class="main__title container">Popular Movies</h2>
   <div class="main__grid container">
-    <div class="main__cards" *ngFor="let u of users">
+    <div class="main__cards" *ngFor="let u of cards |filter:search | paginate: { itemsPerPage: 10, currentPage: p } ">
       <div class="main__cards-card"></div>
 
               <div class="main__cards-card">
-                  <img src="https://streamcoimg-a.akamaihd.net/000/117/25/11725-PosterArt-deecf8dbd786dfa2d964413b0bf83726.jpg">
-                  <p>Breaking bad</p>
+                  <img src="{{u.images['Poster Art'].url}}">
+
+                  <p>{{u.title}}</p>
               </div>
     </div>
 
   </div>
+  <div class="text-center"><pagination-controls class="my-pagination " (pageChange)="p = $event"></pagination-controls></div>
+
 
 
 </main>
+<app-footer></app-footer>

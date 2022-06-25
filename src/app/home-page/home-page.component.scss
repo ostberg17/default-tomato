@@ -58,35 +58,3 @@
   }
 }
 
-
-.footer{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  background: black;
-  padding: 20px;
-  &__logo{
-    img{
-      max-width: 150px;
-      max-height: 50px;
-
-    }
-  }
-  &__list{
-    display: flex;
-    color: aliceblue;
-    a{
-      margin: 0 30px;
-    }
-  }
-  &__icons{
-    display: flex;
-    img{
-      margin: 10px;
-    }
-  }
-  &__copyright{
-    color: aliceblue;
-  }
-}

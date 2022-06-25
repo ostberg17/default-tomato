@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
+import {CardsService} from "../services/cards.service";
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent  {
 
-  constructor() { }
+  constructor(private cardsService: CardsService) { }
 
-  ngOnInit(): void {
+
+
+  showCards(currentType: string) {
+    this.cardsService.getData(currentType)
   }
-
 }

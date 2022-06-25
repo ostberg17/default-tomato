@@ -6,21 +6,28 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MoviesPageComponent } from './movies-page/movies-page.component';
 import { SeriesPageComponent } from './series-page/series-page.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import {NgxPaginationModule} from 'ngx-pagination';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     MoviesPageComponent,
-    SeriesPageComponent
+    SeriesPageComponent,
+    FilterPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

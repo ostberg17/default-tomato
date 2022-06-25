@@ -61,6 +61,7 @@
       //padding-top: 130%;
       //position: relative;
       //display: block;
+      position: relative;
       img{
         object-fit: cover;
         //position: absolute;
@@ -71,10 +72,25 @@
         max-width: 98%;
 
       }
-
-      //height: 260px;
-      //background-color: blue;
-      //margin: 2px;
+      p{
+        position: absolute;
+        left: 10%;
+        top: 80%;
+        color: azure;
+      }
     }
   }
+}
+.ngx-pagination ::ng-deep{
+  background: red;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: red;
+  border-radius: 100%;
+}
+.text-center{
+  display: flex;
+  justify-content: center;
+
 }
