@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 
 import {Cards, CardsService} from "../services/cards.service";
+import {Observable, Subscription} from "rxjs";
 
 
 
@@ -9,13 +10,14 @@ import {Cards, CardsService} from "../services/cards.service";
   templateUrl: './movies-page.component.html',
   styleUrls: ['./movies-page.component.scss']
 })
-export class MoviesPageComponent implements OnInit{
+export class MoviesPageComponent implements OnInit, OnDestroy{
 
   public cards: Cards[] = []
   title: string = ''
   p: number = 1;
   search = '';
-  currentType: string = '';
+  subscription = new Subscription();
+
 
 
 
@@ -24,15 +26,21 @@ export class MoviesPageComponent implements OnInit{
   constructor(private cardsService: CardsService) {}
 
   ngOnInit(): void {
-    let filmResp = this.cardsService.getData(this.currentType)
+    const filmResp = this.cardsService.getData('movie');
+    this.subscription = filmResp
       .subscribe(resp => {
         console.log(resp)
-        this.cards = resp.filter(f=> f.programType === this.currentType)
+        this.cards = resp.filter(f=> f.programType === 'movie')
         console.log(this.cards)
-        this.title = this.currentType
+        this.title = 'movie'
       })
 
     console.log('Film Resp',filmResp)
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe()
+
   }
 
 }

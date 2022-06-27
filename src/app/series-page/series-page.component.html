@@ -1,2 +1,70 @@
 <p>series-page works!</p>
-<app-movies-page></app-movies-page>
+<header class="header">
+  <div class="header__content container">
+    <div class="header__content-left">
+      <div [routerLink]="['/']" class="header__logo">
+        <img src="assets/logo.png">
+      </div>
+      <a>
+        <div  [routerLink]="['/movies']" class="header__content-link">
+          <img src="assets/icon-movies.png">
+          <p>Movies</p>
+        </div>
+      </a>
+      <a>
+        <div [routerLink]="['/series']" class="header__content-link" >
+          <img src="assets/icon-series.png">
+          <p>Series</p>
+        </div>
+      </a>
+
+    </div>
+    <div class="header__content-right">
+      <span></span>
+      <a>
+        <div class="header__content-link">
+          <img src="assets/icon-filter.png">
+          <p>Filters</p>
+        </div>
+      </a>
+      <span></span>
+      <a>
+        <div class="header__content-link">
+          <p>Login</p>
+          <img src="assets/icon-login.png">
+        </div>
+      </a>
+      <span></span>
+      <button class="header__content-trial">Start your free trial</button>
+
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="main__forms">
+    <div class="main__forms-content container">
+      <input type="search" name="find" placeholder="Name" id="#f1" [(ngModel)]="search">
+      <input type="month" name="find" placeholder="1920-1998" id="#f2">
+    </div>
+  </div>
+  <h2 class="main__title container">Popular Movies</h2>
+  <div class="main__grid container">
+    <div class="main__cards" *ngFor="let u of cards |filter:search | paginate: { itemsPerPage: 10, currentPage: p } ">
+      <div class="main__cards-card"></div>
+
+      <div class="main__cards-card">
+        <img src="{{u.images['Poster Art'].url}}">
+
+        <p>{{u.title}}</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="text-center"><pagination-controls class="my-pagination " (pageChange)="p = $event"></pagination-controls></div>
+
+
+
+</main>
+<app-footer></app-footer>
+

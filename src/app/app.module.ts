@@ -11,6 +11,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FooterComponent } from './footer/footer.component';
+import { AllPagesComponent } from './all-pages/all-pages.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
     MoviesPageComponent,
     SeriesPageComponent,
     FilterPipe,
-    FooterComponent
+    FooterComponent,
+    AllPagesComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

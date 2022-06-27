@@ -19,16 +19,23 @@
     justify-content: space-between;
     align-items: center;
     color: aliceblue;
-
-
-
-
     span{
-
       width: 1px;
       height: 20px;
       background-color: azure;
       margin: 0 10px 0 10px;
+    }
+    img{
+      margin: 0 5px;
+    }
+    .btn{
+      height: 20px;
+      background-color: red;
+      color: aliceblue;
+      border: none;
+      border-radius: 20px;
+      margin: 0 10px;
+
     }
 
   }
