@@ -66,16 +66,15 @@
   <h2 class="main__title container">Popular {{title}}</h2>
   <div class="main__grid container">
     <div class="main__cards" *ngFor="let u of filteredCards | paginate: { itemsPerPage: 10, currentPage: p } ">
-      <div class="main__cards-card"></div>
-
-              <div class="main__cards-card">
-                <img src="{{u.images['Poster Art'].url}}">
-                <p>{{u.title}}</p>
-                <span class="main__cards-card-banner"></span>
-
-              </div>
+      <div class="main__cards-card">
+        <img src="{{u.images['Poster Art'].url}}">
+        <div class="main__cards-card-banner">
+          <div class="card-title">{{u.title}} </div>
+          <div class="card-year"><h4>{{u.releaseYear}}</h4></div>
+          <div class="card-description">{{u.description}}</div>
+        </div>
+      </div>
     </div>
-
   </div>
   <div class="text-center"><pagination-controls class="my-pagination " (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls></div>
 </main>
