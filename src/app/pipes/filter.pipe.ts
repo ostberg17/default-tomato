@@ -13,7 +13,7 @@ export class FilterPipe implements PipeTransform {
     }
     return cards.filter(card =>{
       console.log('!!!!!!!!!',cards)
-      return card.title.includes(search)
+      return card.title.toLowerCase().includes(search.toLowerCase())
     })
   }
 

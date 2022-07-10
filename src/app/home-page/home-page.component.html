@@ -1,33 +1,42 @@
-<header class="header">
-  <div class="header__content container">
-    <div class="header__logo">
-      <img src="assets/logo.png">
+<div class="wrapper">
+  <header class="header">
+    <div class="header__content container">
+      <div class="header__logo">
+        <img src="assets/logo.png">
+      </div>
+      <div class="header__login">
+
+        <span></span>
+        <div>Login</div>
+
+        <img src="assets/icon-login.png">
+        <span></span>
+        <button class="header__login-trial btn">Start your free trial</button>
+      </div>
     </div>
-    <div class="header__login">
+  </header>
 
-      <span></span>
-      <div>Login</div>
+  <main class="main">
+    <div class="main__groups"  (click)="showMovies()">
+      <div class="main__groups-title">
+        <div class="main__groups-title-banner">
+          <h2>Movies</h2>
+        </div>
+        <img class="main__groups-title-img" src="assets/movies.png" >
+      </div>
 
-      <img src="assets/icon-login.png">
-      <span></span>
-      <button class="header__login-trial btn">Start your free trial</button>
+
+      <div class="main__groups-title"  (click)="showSeries()">
+        <div class="main__groups-title-banner">
+          <h2>Series</h2>
+        </div>
+        <img class="main__groups-title-img" src="assets/series.png">
+      </div>
     </div>
-  </div>
-</header>
+  </main>
+  <app-footer></app-footer>
+</div>
 
-<main class="main">
-  <div class="main__groups" [routerLink]="['/movies']" (click)="showCards('movies')">
-    <div class="main__groups-title">
-      <img class="main__groups-title-img" src="assets/movies.png" >
-    </div>
-
-
-    <div class="main__groups-title" [routerLink]="['/series']" (click)="showCards('series')">
-      <img class="main__groups-title-img" src="assets/series.png">
-    </div>
-  </div>
-</main>
-<app-footer></app-footer>
 
 
 

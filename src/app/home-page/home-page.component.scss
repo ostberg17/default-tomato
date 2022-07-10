@@ -1,13 +1,17 @@
+html{
+
+}
+.wrapper{
+}
 .container{
   max-width: 1200px;
-
-
   margin: auto;
 }
 
 .header{
   background: black;
   height: 60px;
+
   &__content{
     display: flex;
     justify-content: space-between;
@@ -30,14 +34,13 @@
     }
     .btn{
       height: 20px;
+      width: 175px;
       background-color: red;
       color: aliceblue;
       border: none;
       border-radius: 20px;
       margin: 0 10px;
-
     }
-
   }
 }
 .red{
@@ -51,6 +54,22 @@
     &-title{
       width: 50%;
       position: relative;
+      &-banner{
+        width: 100%;
+        height: 90px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: red;
+        opacity: 80%;
+        h2{
+          margin-left: 30px;
+          position: absolute;
+          top: 30%;
+          font-size: 30px;
+          color: white;
+        }
+      }
       &-img{
 
         width: 100%;

@@ -6,13 +6,13 @@
         <img src="assets/logo.png">
       </div>
       <a>
-        <div  [routerLink]="['/movies']" class="header__content-link">
+        <div routerLinkActive="red" [routerLink]="['/movie']" class="header__content-link">
           <img src="assets/icon-movies.png">
           <p>Movies</p>
         </div>
       </a>
       <a>
-        <div [routerLink]="['/series']" class="header__content-link" >
+        <div routerLinkActive="red" [routerLink]="['/series']" class="header__content-link">
           <img src="assets/icon-series.png">
           <p>Series</p>
         </div>
@@ -22,7 +22,7 @@
     <div class="header__content-right">
       <span></span>
       <a>
-        <div class="header__content-link">
+        <div class="header__content-link ">
           <img src="assets/icon-filter.png">
           <p>Filters</p>
         </div>
@@ -35,35 +35,48 @@
         </div>
       </a>
       <span></span>
-      <button class="header__content-trial">Start your free trial</button>
+      <button class="header__content-trial btn">Start your free trial</button>
 
     </div>
   </div>
 </header>
 
 <main class="main">
+
   <div class="main__forms">
     <div class="main__forms-content container">
-      <input type="search" name="find" placeholder="Name" id="#f1" [(ngModel)]="search">
-      <input  name="find" placeholder="1920-1998" id="#f2">
+      <input class="input01" type="search" name="find" placeholder="Name" id="#f1" [(ngModel)]="search" (ngModelChange)="test1($event)" ngDefaultControl>
+
+      <mat-form-field appearance="outline">
+        <mat-label></mat-label>
+        <input class="input3" matInput
+               [matDatepicker]="datepicker"
+               [formControl]="date"
+               placeholder="select Date">
+        <mat-datepicker-toggle matSuffix [for]="datepicker" [formControl]="date"></mat-datepicker-toggle>
+        <mat-datepicker
+          #datepicker
+          startView="multi-year"
+          (yearSelected)="setYear($event, datepicker)"
+
+        ></mat-datepicker>
+      </mat-form-field>
     </div>
   </div>
-  <h2 class="main__title container">Popular Movies</h2>
+  <h2 class="main__title container">Popular {{title}}</h2>
   <div class="main__grid container">
-    <div class="main__cards" *ngFor="let u of cards |filter:search | paginate: { itemsPerPage: 10, currentPage: p } ">
+    <div class="main__cards" *ngFor="let u of filteredCards | paginate: { itemsPerPage: 10, currentPage: p } ">
       <div class="main__cards-card"></div>
 
               <div class="main__cards-card">
-                  <img src="{{u.images['Poster Art'].url}}">
+                <img src="{{u.images['Poster Art'].url}}">
+                <p>{{u.title}}</p>
+                <span class="main__cards-card-banner"></span>
 
-                  <p>{{u.title}}</p>
               </div>
     </div>
 
   </div>
-  <div class="text-center"><pagination-controls class="my-pagination " (pageChange)="p = $event"></pagination-controls></div>
-
-
-
+  <div class="text-center"><pagination-controls class="my-pagination " (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls></div>
 </main>
 <app-footer></app-footer>

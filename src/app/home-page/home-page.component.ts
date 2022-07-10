@@ -1,18 +1,27 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {CardsService} from "../services/cards.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent  {
+export class HomePageComponent implements OnInit{
 
-  constructor(private cardsService: CardsService) { }
+  constructor(private cardsService: CardsService, private router: Router) { }
 
 
+  ngOnInit() {
 
-  showCards(currentType: string) {
-    this.cardsService.getData(currentType)
+  }
+
+
+  showMovies() {
+    this.router.navigate(['/movie'])
+  }
+
+  showSeries() {
+    this.router.navigate(['/series'])
   }
 }

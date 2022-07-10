@@ -11,8 +11,10 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FooterComponent } from './footer/footer.component';
-import { AllPagesComponent } from './all-pages/all-pages.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatInputModule} from "@angular/material/input";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -21,8 +23,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MoviesPageComponent,
     SeriesPageComponent,
     FilterPipe,
-    FooterComponent,
-    AllPagesComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +32,13 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HttpClientModule,
     NgxPaginationModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -9,19 +9,59 @@
     display: flex;
     justify-content: space-between;
     &-left{
+      .header__logo{
+        margin-right: 30px;
+      }
       display: inline-flex;
+      a{
+        display: inline-flex;
+      }
     }
     &-right{
       display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      a{
+        display: inline-flex;
+      }
+      .btn{
+        height: 20px;
+        width: 175px;
+        background-color: red;
+        color: aliceblue;
+        border: none;
+        border-radius: 20px;
+        margin: 0 10px;
+
+
+      }
+    }
+    .red{
+      background-color: red;
     }
     &-link{
-      display: inline-flex;
-      color: azure;
+      max-width: 112px;
+      display: flex;
+
+
+      justify-content: center;
       align-items: center;
+      color: azure;
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-right: 20px;
+      img{
+        padding-bottom:10px ;
+        margin: 0 10px;
+      }
     }
   }
 }
 .main{
+  background-color: #131313;
+  &__title{
+    color: white;
+  }
   &__forms{
     background: red;
     height: 60px;
@@ -30,18 +70,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      input {
+      .input01 {
         display: block;
         border: 2px solid red;
         border-radius: 20px;
         height: 60%;
-
-      }
-      input[type=search]{
         width: 70%;
       }
-      input[type=month]{
-        width: 25%;
+      input[type=search]{
+      }
+      .input2{
       }
     }
   }
@@ -75,22 +113,95 @@
       p{
         position: absolute;
         left: 10%;
-        top: 80%;
-        color: azure;
+        top: 85%;
+        color: white;
+        z-index: 10;
+      }
+      &-banner{
+        position: absolute;
+        width: 98%;
+        height: 50px;
+        left: 0;
+        bottom: 5px;
+        background-color: black;
+        opacity: 50%;
       }
     }
   }
 }
-.ngx-pagination ::ng-deep{
-  background: red;
-}
 
-.my-pagination ::ng-deep .ngx-pagination .current {
-  background: red;
-  border-radius: 100%;
+
+::ng-deep .ngx-pagination li{
+  background: brown;
+  border-radius: 100% !important;
+  .current{
+    background: black !important;
+  }
+}
+::ng-deep .pagination-next {
+  background: none !important;
+}
+::ng-deep .pagination-previous{
+  background: none !important;
+}
+::ng-deep .ngx-pagination .current{
+  background: red !important;
+}
+::ng-deep .ngx-pagination .pagination-next span{
+  content: none !important;
+}
+::ng-deep .ngx-pagination .pagination-next a:after, .ngx-pagination .pagination-next.disabled:after{
+  content: "\203a" !important;
+  font-size: 35px;
+  color: yellow !important;
+}
+::ng-deep pagination-next ng-star-inserted {
+  background: yellow !important;
 }
 .text-center{
   display: flex;
   justify-content: center;
+}
 
+.input3 {
+
+
+}
+::ng-deep.mat-form-field-outline {
+  display: none;
+}
+::ng-deep.mat-datepicker-input{
+  padding: 8px 10px !important;
+
+}
+::ng-deep.mat-form-field-infix{
+  border-top: none;
+  height: 100%;
+}
+::ng-deep mat-form-field{
+  background-color: red;
+  height: 100%;
+  width: 270px;
+  .input3{
+    display: block;
+    border: 2px solid red;
+    border-radius: 20px;
+    height: 70%;
+    background-color: azure;
+  }
+}
+::ng-deep .mat-form-field-outline{
+  display: none !important;
+}
+
+::ng-deep .mat-button-wrapper{
+  margin-right: 20px;
+}
+
+::ng-deep .mat-calendar-table-header-divider{
+  display: none;
+}
+::ng-deep .mat-calendar-header{
+  background-color: red;
+  color: azure;
 }
