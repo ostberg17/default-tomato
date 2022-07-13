@@ -159,7 +159,9 @@
   }
 }
 
-
+::ng-deep .ngx-pagination .disabled{
+  display: none;
+}
 ::ng-deep .ngx-pagination li{
   background: brown;
   border-radius: 100% !important;
@@ -172,29 +174,39 @@
 }
 ::ng-deep .pagination-previous{
   background: none !important;
+  content: "" !important;
 }
 ::ng-deep .ngx-pagination .current{
   background: red !important;
 }
+
 ::ng-deep .ngx-pagination .pagination-next span{
   content: none !important;
 }
 ::ng-deep .ngx-pagination .pagination-next a:after, .ngx-pagination .pagination-next.disabled:after{
   content: "\203a" !important;
   font-size: 35px;
-  color: yellow !important;
+  color: white !important;
+  margin-left: 0 !important;
+  position: relative;
+  top: 5px;
+
 }
-::ng-deep pagination-next ng-star-inserted {
-  background: yellow !important;
+::ng-deep .ngx-pagination .pagination-previous a:before, .ngx-pagination .pagination-previous{
+  content: "\2039" !important;
+  font-size: 35px;
+  color: white !important;
+  margin-right: 0 !important;
+  position: relative;
+  top: 5px;
+
+}
+::ng-deep .ngx-pagination .pagination-previous a:before, .ngx-pagination .pagination-previous.disabled:before {
+  content: none;
 }
 .text-center{
   display: flex;
   justify-content: center;
-}
-
-.input3 {
-
-
 }
 ::ng-deep.mat-form-field-outline {
   display: none;
@@ -233,4 +245,27 @@
 ::ng-deep .mat-calendar-header{
   background-color: red;
   color: azure;
+}
+::ng-deep .mat-calendar-body-cell-content{
+  border-radius: 0 !important;
+  border-style: none !important;
+}
+::ng-deep .mat-calendar-body-selected{
+  background-color: red;
+}
+::ng-deep .mat-calendar-previous-button{
+  order: -1;
+}
+::ng-deep .mat-calendar-spacer{
+  display: none;
+}
+::ng-deep .mat-calendar-controls{
+  justify-content: center;
+}
+::ng-deep .mat-calendar-arrow.mat-calendar-invert{
+  display: none;
+}
+::ng-deep .mat-button-wrapper{
+  position: center;
+  
 }

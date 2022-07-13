@@ -54,9 +54,11 @@ export class MoviesPageComponent implements OnInit, OnDestroy{
   p: number = 1;
   search = '';
   subscription = new Subscription();
+  @Input()
   date = new FormControl(moment());
 
   constructor(private cardsService: CardsService, private route: ActivatedRoute, private router: Router) {
+
   }
 
   ngOnInit(): void {
@@ -95,9 +97,10 @@ export class MoviesPageComponent implements OnInit, OnDestroy{
 
 
   test1(value: string): void {
-    this.filteredCards = this.cards.filter((f)=> f.title.toLowerCase().startsWith(value.toLowerCase()))
-    console.log(this.cards)
+    this.filteredCards = this.cards.filter((f)=> f.title.toLowerCase().includes(value.toLowerCase()))
+    console.log('FILTERED CARDS',this.filteredCards)
   }
+
 }
 
 

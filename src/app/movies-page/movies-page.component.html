@@ -45,19 +45,23 @@
 
   <div class="main__forms">
     <div class="main__forms-content container">
-      <input class="input01" type="search" name="find" placeholder="Name" id="#f1" [(ngModel)]="search" (ngModelChange)="test1($event)" ngDefaultControl>
-
+      <input class="input01" type="search" name="find"  placeholder="Name" id="#f1" [(ngModel)]="search" (ngModelChange)="test1($event)">
       <mat-form-field appearance="outline">
         <mat-label></mat-label>
-        <input class="input3" matInput
+        <input class="input3"
+               ngDefaultControl
+               matInput
                [matDatepicker]="datepicker"
+               (click)="datepicker.open()"
                [formControl]="date"
                placeholder="select Date">
-        <mat-datepicker-toggle matSuffix [for]="datepicker" [formControl]="date"></mat-datepicker-toggle>
+        <mat-datepicker-toggle  matSuffix [for]="datepicker" [formControl]="date" ngDefaultControl ></mat-datepicker-toggle>
         <mat-datepicker
           #datepicker
           startView="multi-year"
+          startValue="1900"
           (yearSelected)="setYear($event, datepicker)"
+
 
         ></mat-datepicker>
       </mat-form-field>
@@ -76,6 +80,6 @@
       </div>
     </div>
   </div>
-  <div class="text-center"><pagination-controls class="my-pagination " (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls></div>
+  <div class="text-center"><pagination-controls class="my-pagination " (pageChange)="p=($event)"  previousLabel="" nextLabel="" ></pagination-controls></div>
 </main>
 <app-footer></app-footer>
